@@ -58,10 +58,10 @@
             requestAnimationFrame(draw);
 
             function draw() {
-                canvas.width = 320;
-                canvas.height = 320;
+                canvas.width = 720;
+                canvas.height = 720;
                 ctx.drawImage(video, 0, 0, 720, 720,
-                    0, 0, 320, 320); // http://www.html5.jp/canvas/ref/method/drawImage.html
+                    0, 0, 720, 720); // http://www.html5.jp/canvas/ref/method/drawImage.html
                 imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 data = imgData.data;
                 // for (let i = 0; i < data.length; i += 4) {
@@ -74,10 +74,10 @@
                 // ctx.putImageData(imgData, 0, 0);
                 // // requestAnimationFrame(draw);
 
-                canvas2.width = 320;
-                canvas2.height = 320;
+                canvas2.width = 720;
+                canvas2.height = 720;
                 ctx2.drawImage(video, 0, 0, 720, 720,
-                    0, 0, 320, 320);
+                    0, 0, 720, 720);
                 imgData2 = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
                 // data2 = imgData2.data;
                 // for (let i = 0; i < data2.length; i += 4) {

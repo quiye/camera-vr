@@ -7,12 +7,12 @@ body {
   height: 0%;
 }
 #canvas {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
 }
 #canvas2 {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
 }
 #capture{
 padding: 10px 30px;

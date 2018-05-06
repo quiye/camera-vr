@@ -28,7 +28,8 @@
 <body>
     <div align="center">
         <video id="player" controls autoplay playsinline></video>
-        <canvas id="canvas" width="300" height="100"></canvas>
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <canvas id="canvas2" width="300" height="300"></canvas>
         <div class="button">
             <button id="capture">日本語を撮影する</button>
         </div>
@@ -36,19 +37,21 @@
             <button id="captureeng">Capture English</button>
         </div>
         <div id="msg" align="center"></div>
-        <canvas id="snapshot" width="300" height="100"></canvas>
+        <canvas id="snapshot" width="300" height="300"></canvas>
         <br>
         <script>
             var video = document.getElementById("player"),
                 canvas = document.getElementById("canvas"),
+                canvas2 = document.getElementById("canvas2"),
                 ctx = canvas.getContext("2d");
+                ctx2 = canvas2.getContext("2d");
             requestAnimationFrame(draw);
     
             function draw() {
                 canvas.width = 300;
-                canvas.height = 100;
-                ctx.drawImage(video, 100, 300, 600, 200,
-                    0, 0, 300, 100);
+                canvas.height = 300;
+                ctx.drawImage(video, 300, 300, 300, 300,
+                    0, 0, 300, 300);
                 imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 data = imgData.data;
                 for (let i = 0; i < data.length; i += 4) {
@@ -59,6 +62,22 @@
                     data[i + 3] = 255;
                 }
                 ctx.putImageData(imgData, 0, 0);
+                // requestAnimationFrame(draw);
+
+                canvas2.width = 300;
+                canvas2.height = 300;
+                ctx2.drawImage(video, 300, 300, 300, 300,
+                    0, 0, 300, 300);
+                imgData2 = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
+                data2 = imgData2.data;
+                // for (let i = 0; i < data2.length; i += 4) {
+                //     ave2 = (data2[i + 0] + data2[i + 1] + data2[i + 2]) / 3;
+                //     data2[i + 0] =
+                //         data2[i + 1] =
+                //         data2[i + 2] = (ave2 > 128) ? 255 : 0;
+                //     data2[i + 3] = 255;
+                // }
+                ctx2.putImageData(imgData2, 0, 0);
                 requestAnimationFrame(draw);
             }
             var snapshotCanvas = document.getElementById('snapshot');

@@ -60,7 +60,7 @@
             function draw() {
                 canvas.width = 300;
                 canvas.height = 300;
-                ctx.drawImage(video, 0, 0, 720, 720,
+                ctx.drawImage(video, 0, 0, 750, 750,
                     0, 0, 300, 300); // http://www.html5.jp/canvas/ref/method/drawImage.html
                 imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 data = imgData.data;
@@ -79,7 +79,7 @@
                 ctx2.drawImage(video, 0, 0, 720, 720,
                     0, 0, 300, 300);
                 imgData2 = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
-                data2 = imgData2.data;
+                // data2 = imgData2.data;
                 // for (let i = 0; i < data2.length; i += 4) {
                 //     ave2 = (data2[i + 0] + data2[i + 1] + data2[i + 2]) / 3;
                 //     data2[i + 0] =
@@ -87,7 +87,7 @@
                 //         data2[i + 2] = (ave2 > 128) ? 255 : 0;
                 //     data2[i + 3] = 255;
                 // }
-                ctx2.putImageData(imgData2, 0, 0);
+                // ctx2.putImageData(imgData2, 0, 0);
                 requestAnimationFrame(draw);
             }
             var snapshotCanvas = document.getElementById('snapshot');

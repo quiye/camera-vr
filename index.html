@@ -35,9 +35,9 @@
         <div line-height: 0;>
             <video id="player" controls autoplay playsinline></video>
             <br>
-            <canvas id="canvas" width="300" height="300"></canvas>
+            <canvas id="canvas" width="400" height="400"></canvas>
             <br>
-            <canvas id="canvas2" width="300" height="300"></canvas>
+            <canvas id="canvas2" width="400" height="400"></canvas>
             <br>
         </div>
         <br>
@@ -48,7 +48,7 @@
             <button id="captureeng">Capture English</button>
         </div>
         <div id="msg" align="center"></div>
-        <canvas id="snapshot" width="300" height="300"></canvas>
+        <canvas id="snapshot" width="400" height="400"></canvas>
         <script>
             var video = document.getElementById("player"),
                 canvas = document.getElementById("canvas"),
@@ -58,10 +58,10 @@
             requestAnimationFrame(draw);
 
             function draw() {
-                canvas.width = 300;
-                canvas.height = 300;
-                ctx.drawImage(video, 0, 0, 750, 750,
-                    0, 0, 300, 300); // http://www.html5.jp/canvas/ref/method/drawImage.html
+                canvas.width = 400;
+                canvas.height = 400;
+                ctx.drawImage(video, 0, 0, 720, 720,
+                    0, 0, 400, 400); // http://www.html5.jp/canvas/ref/method/drawImage.html
                 imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 data = imgData.data;
                 // for (let i = 0; i < data.length; i += 4) {
@@ -74,10 +74,10 @@
                 // ctx.putImageData(imgData, 0, 0);
                 // // requestAnimationFrame(draw);
 
-                canvas2.width = 300;
-                canvas2.height = 300;
+                canvas2.width = 400;
+                canvas2.height = 400;
                 ctx2.drawImage(video, 0, 0, 720, 720,
-                    0, 0, 300, 300);
+                    0, 0, 400, 400);
                 imgData2 = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
                 // data2 = imgData2.data;
                 // for (let i = 0; i < data2.length; i += 4) {
@@ -101,7 +101,7 @@
 
             captureButton.addEventListener('click', function () {
                 var context = snapshot.getContext('2d');
-                context.drawImage(video, 100, 300, 600, 200, 0, 0, snapshotCanvas.width,
+                context.drawImage(video, 100, 400, 600, 200, 0, 0, snapshotCanvas.width,
                     snapshotCanvas.height);
                 const url = snapshot.toDataURL("image/png");
                 Tesseract
@@ -115,7 +115,7 @@
                         console.log(result)
                         $("#msg").text("Progress Complete")
                         var elem = document.createElement('div');
-                        elem.innerHTML = "<div id=" + num + " style='width:300px; background-color:#EEEEEE'><img src=" + url + " /></div><br>"
+                        elem.innerHTML = "<div id=" + num + " style='width:400px; background-color:#EEEEEE'><img src=" + url + " /></div><br>"
                         var parent = document.getElementById("results");
                         parent.insertBefore(elem, parent.firstChild);
                         var numdiv = document.getElementById(num);
@@ -127,7 +127,7 @@
             });
             captureButtoneng.addEventListener('click', function () {
                 var context = snapshot.getContext('2d');
-                context.drawImage(video, 100, 300, 600, 200, 0, 0, snapshotCanvas.width,
+                context.drawImage(video, 100, 400, 600, 200, 0, 0, snapshotCanvas.width,
                     snapshotCanvas.height);
                 const url = snapshot.toDataURL("image/png");
                 Tesseract
@@ -141,7 +141,7 @@
                         console.log(result)
                         $("#msg").text("Progress Complete")
                         var elem = document.createElement('div');
-                        elem.innerHTML = "<div id=" + num + " style='width:300px; background-color:#EEEEEE'><img src=" + url + " /></div><br>"
+                        elem.innerHTML = "<div id=" + num + " style='width:400px; background-color:#EEEEEE'><img src=" + url + " /></div><br>"
                         var parent = document.getElementById("results");
                         parent.insertBefore(elem, parent.firstChild);
                         var numdiv = document.getElementById(num);

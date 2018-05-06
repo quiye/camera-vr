@@ -60,7 +60,7 @@
             function draw() {
                 canvas.width = 300;
                 canvas.height = 300;
-                ctx.drawImage(video, 0, 0, 1720, 1720,
+                ctx.drawImage(video, 0, 0, 960, 960,
                     0, 0, 300, 300); // http://www.html5.jp/canvas/ref/method/drawImage.html
                 imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 data = imgData.data;
@@ -76,7 +76,7 @@
 
                 canvas2.width = 300;
                 canvas2.height = 300;
-                ctx2.drawImage(video, 0, 0, 1024, 1024,
+                ctx2.drawImage(video, 0, 0, 720, 1024,
                     0, 0, 300, 300);
                 imgData2 = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
                 data2 = imgData2.data;

@@ -6,6 +6,14 @@ body {
   width: 0.5%;
   height: 0%;
 }
+#canvas {
+  width: 50%;
+  height: 50%;
+}
+#canvas2 {
+  width: 50%;
+  height: 50%;
+}
 #capture{
 padding: 10px 30px;
 font-weight: bold;

@@ -46,7 +46,8 @@
             requestAnimationFrame(draw);
             var t = 1;
 
-            olddata = 0
+            olddata = null
+            let olds = Array.from(new Array(30), () => new Array(720 * 4).fill(0));
             count = 0
             function draw() {
                 count = (count + 1) % 30
@@ -58,20 +59,23 @@
                 data = imgData.data;
                 for (let i = 0; i < data.length; i += 4) {
                     ave = (data[i + 0] + data[i + 1] + data[i + 2]) / 3;
-                    ave2 = (olddata[i + 0] + olddata[i + 1] + olddata[i + 2]) / 3;
-                    olddata[i + 0] = data[i + 0]
-                    olddata[i + 1] = data[i + 1]
-                    olddata[i + 2] = data[i + 2]
+                    ave2 = (olds[count][i + 0] + olds[count][i + 1] + olds[count][i + 2]) / 3;
+                    olds[count][i + 0] = data[i + 0]
+                    olds[count][i + 1] = data[i + 1]
+                    olds[count][i + 2] = data[i + 2]
+                    tmp1 = olds[count][i + 0]
+                    tmp2 = olds[count][i + 1]
+                    tmp3 = olds[count][i + 2]
                     if (Math.abs(ave - ave2) > 30) {
-                        data[i + 0] =
-                            data[i + 1] =
-                            data[i + 2] = 0;
+                        data[i + 0] = tmp1 = 0
+                        data[i + 1] = tmp2 = 0
+                        data[i + 2] = tmp3 = 0
                     }
                     data[i + 3] = 255;
                 }
                 ctx.putImageData(imgData, 0, 0);
 
-                if (count == 0) olddata = imgData.data
+                if (count == 0) olds[count] = imgData.data
                 // requestAnimationFrame(draw);
 
                 canvas2.width = 720;

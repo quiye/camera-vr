@@ -68,12 +68,9 @@
                     olds[i + 0][count] = data[i + 0]
                     olds[i + 1][count] = data[i + 1]
                     olds[i + 2][count] = data[i + 2]
-                    const midR = olds[i + 0].sort()[parseInt(storesize/2)];
-                    data[i + 0] = midR;
-                    const midG = olds[i + 1].sort()[parseInt(storesize/2)];
-                    // data[i + 1] = midG;
-                    const midB = olds[i + 2].sort()[parseInt(storesize/2)];
-                    // data[i + 2] = midB;
+                    data[i + 0] = olds[i + 0].sort()[parseInt(storesize/2)];
+                    data[i + 1] = olds[i + 1].sort()[parseInt(storesize/2)];
+                    data[i + 2] = olds[i + 2].sort()[parseInt(storesize/2)];
                     // data[i + 3] = 255;
                 }
                 // console.log(changed/(changed+notchanged));

@@ -47,7 +47,7 @@
             var t = 1;
 
             olddata = null
-            const storesize = 20;
+            const storesize = 10;
             const realsize = 300
             let olds = Array.from(new Array(realsize * realsize * 4), () => new Array(storesize).fill(0));
             // console.log(olds)
@@ -70,41 +70,25 @@
                     olds[i + 2][count] = data[i + 2]
                     const midR = olds[i + 0].sort()[parseInt(storesize/2)];
                     data[i + 0] = midR;
-                    const midG = olds[i + 1].sort()[parseInt(storesize/2)];
-                    data[i + 1] = midG;
-                    const midB = olds[i + 2].sort()[parseInt(storesize/2)];
-                    data[i + 2] = midB;
-                    // if (Math.abs(ave - ave2) > 30) {
-                    //     data[i + 0]  = 0
-                    //     data[i + 1]  = 0
-                    //     data[i + 2]  = 0
-                    //     changed++;
-                    // }else{
-                    //     notchanged++;
-                    // }
+                    // const midG = olds[i + 1].sort()[parseInt(storesize/2)];
+                    data[i + 1] = midR;
+                    // const midB = olds[i + 2].sort()[parseInt(storesize/2)];
+                    data[i + 2] = midR;
                     data[i + 3] = 255;
                 }
                 // console.log(changed/(changed+notchanged));
                 
                 ctx.putImageData(imgData, 0, 0);
 
-                if (count == 0) olds[count] = imgData.data
+                // if (count == 0) olds[count] = imgData.data
                 // requestAnimationFrame(draw);
 
                 canvas2.width = realsize;
                 canvas2.height = realsize;
                 ctx2.drawImage(video, 0, 0, 720, 720,
                     0, 0, realsize, realsize);
-                imgData2 = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
-                // data2 = imgData2.data;
-                // for (let i = 0; i < data2.length; i += 4) {
-                //     ave2 = (data2[i + 0] + data2[i + 1] + data2[i + 2]) / 3;
-                //     data2[i + 0] =
-                //         data2[i + 1] =
-                //         data2[i + 2] = (ave2 > 128) ? 255 : 0;
-                //     data2[i + 3] = 255;
-                // }
-                // ctx2.putImageData(imgData2, 0, 0);
+                ctx2.putImageData(imgData, 0, 0);
+                // imgData2 = ctx2.getImageData(0, 0, canvas2.width, canvas2.height);
 
                 requestAnimationFrame(draw);
             }
